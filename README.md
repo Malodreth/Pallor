@@ -18,7 +18,7 @@ Notice: ***REQUIRES** Python 3.x to run!* [Click here](https://www.python.org/do
 
 Simply clone the parent folder, then open and double-click Pallor.bat to launch the game.
 
-###Troubleshooting
+### Troubleshooting
 
 * **Pallor.bat isn't opening** 
  * Some security tools block .bat files from executing. *To override this: right-click on the file > go to properties > check 'Unblock' under Security > click apply.*
