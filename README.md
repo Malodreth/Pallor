@@ -25,6 +25,8 @@ version 0.1.1 | release date 05/10/2017
 
 Notice: ***REQUIRES** Python 3.x to run!* [Click here](https://www.python.org/downloads/) to download.
 
+*Currently only supports Windows operating systems.*
+
 ### Installing
 
 Simply clone the parent folder, then open and double-click Pallor.bat to launch the game.
@@ -32,9 +34,9 @@ Simply clone the parent folder, then open and double-click Pallor.bat to launch 
 ### Troubleshooting
 
 * **Pallor.bat isn't opening** 
- * Some security tools block .bat files from executing. *To override this: right-click on the file > go to properties > check 'Unblock' under Security > click apply.*
+  * Some security tools block .bat files from executing. *To override this: right-click on the file > go to properties > check 'Unblock' under Security > click apply.*
 * **I keep getting "*'python' is not recognized as an internal or external command...*"**
- * If you're launching the programme from Pallor.bat, make sure that Python is configured properly. To check this: open the cmd console > type 'python -V' > hit enter. *If you get an error, read section 3.3 Configuring Python of the [Python documentation](https://docs.python.org/3.6/using/windows.html) to learn how to manually set your environment variables.*
+  * If you're launching the programme from Pallor.bat, make sure that Python is configured properly. To check this: open the cmd console > type 'python -V' > hit enter. *If you get an error, read section 3.3 Configuring Python of the [Python documentation](https://docs.python.org/3.6/using/windows.html) to learn how to manually set your environment variables.*
 
 ## How To Play
 
