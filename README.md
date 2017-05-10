@@ -66,7 +66,7 @@ Choose from the list of available actions in each room to explore or advance:
 
 ## Licence
 
-This material is covered under the MIT licence. Please see [License.md](https://github.com/Malodreth/Pallor/License.md) for more information.
+This material is covered under the MIT licence. Please see [License.md](https://github.com/Malodreth/Pallor/blob/master/License.md) for more information.
 
 # Acknowledgements
 
