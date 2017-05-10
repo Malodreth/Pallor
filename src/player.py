@@ -5,7 +5,7 @@ class Player():
     global _max_y
     
     def __init__(self):
-        self.inventory = [items.Gold(15), items.Rock()]
+        self.inventory = [items.Gold(15), items.Mushroom(), items.Mushroom(), items.Rock()]
         self.hp = 100
         self.location_x, self.location_y = (0, 0)
         self.victory = False
@@ -43,7 +43,7 @@ class Player():
         self.move(dx=-1, dy=0)
 
     def view_map(self):
-        print("-=( Dungeon Map )=-")
+        print("-=( Dungeon Map )=-\n")
         for j in range(pylon._max_y):
             for i in range(pylon._max_x):
                 if self.location_x == i and self.location_y == j:
@@ -54,6 +54,38 @@ class Player():
 
     def look(self):
         print(pylon.tile_exists(self.location_x, self.location_y).intro_text())
+
+    def use_consumable(self):
+        best_food = None
+        max_heal = 0
+        modifier = 0
+        heal_amt = 0
+        for i in self.inventory:
+            if isinstance(i, items.Consumable):
+                if i.healing > max_heal:
+                    max_heal = i.healing
+        for i in self.inventory:
+            if isinstance(i, items.Consumable):
+                if i.healing == max_heal:
+                    best_food = i
+                    self.inventory.remove(i)
+                    break
+
+        if best_food == None:
+            print("\n\tYou have nothing to eat.\n")
+        else:
+            print("\n\tYou ate a {}.".format(best_food.name))
+            if self.hp == 100:
+                print("\tYou don't feel any different...\n")
+            if self.hp < 100:
+                self.hp += best_food.healing
+                heal_amt = best_food.healing
+                if self.hp > 100:
+                    modifier = self.hp - 100
+                    self.hp -= modifier
+                    heal_amt = best_food.healing - modifier
+                print("\tYou've been healed for {} points! You have {} HP.\n".format(heal_amt, self.hp))
+        
 
     def attack(self, enemy):
         best_weapon = None

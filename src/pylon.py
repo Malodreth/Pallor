@@ -76,6 +76,7 @@ class MapTile:
         """Returns all of the available actions in this room."""
         moves = self.adjacent_moves()
         moves.append(actions.Look())
+        moves.append(actions.UseConsumable())
         moves.append(actions.ViewInventory())
         moves.append(actions.ViewMap())
         return moves
@@ -111,7 +112,7 @@ class EnemyRoom(MapTile):
         if self.enemy.is_alive():
             dmg = self.enemy.damage + d6()
             the_player.hp = the_player.hp - dmg
-            if not the_player.hp < 0: 
+            if not the_player.hp <= 0: 
                 print("\n\t{} does {} damage. You have {} HP remaining.\n".format(self.enemy.name, dmg, the_player.hp))
 
     def available_actions(self):
@@ -120,6 +121,7 @@ class EnemyRoom(MapTile):
         else:
             moves = self.adjacent_moves()
             moves.append(actions.Look())
+            moves.append(actions.UseConsumable())
             moves.append(actions.ViewInventory())
             moves.append(actions.ViewMap())
             return moves

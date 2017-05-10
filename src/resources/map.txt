@@ -1,7 +1,7 @@
 xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx VictoryRoom          xxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxx Find5GoldRoom        EmptyCavePath        GiantSpiderRoom      xxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx EmptyCavePath        xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx FindBananaRoom       xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx EmptyCavePath        xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx
 GiantSpiderRoom      EmptyCavePath        StartingRoom         EmptyCavePath        FindDaggerRoom
 xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx Find5GoldRoom        xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx

@@ -35,6 +35,35 @@ class Weapon(Item):
 
 
 
+class Consumable(Item):
+    """The subclass for all consumables"""
+    def __init__(self, name, description, value, healing):
+        self.healing = healing
+        super().__init__(name, description, value)
+
+    def __str__(self):
+        return "{}\n=====\n{}\nValue: {}\nHealing: {}\n".format(self.name, self.description, self.value, self.healing)
+
+
+
+class Mushroom(Consumable):
+    def __init__(self):
+        super().__init__(name="MUSHROOM",
+                         description="A simple brown mushroom. Looks edible.",
+                         value=5,
+                         healing=15)
+
+
+
+class Banana(Consumable):
+    def __init__(self):
+        super().__init__(name="BANANA",
+                         description="A large yellow banana with bruises. Looks edible.",
+                         value=5,
+                         healing=30)
+
+
+        
 class Rock(Weapon):
     def __init__(self):
         super().__init__(name="ROCK",

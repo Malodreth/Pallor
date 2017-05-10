@@ -79,7 +79,7 @@ class FindDaggerRoom(LootRoom):
             """
         else:
             return """
-        This is the room that your penis was found in.
+        This is the room that your dagger was found in.
         Nothing else is remarkable about this room now.
             """
 
@@ -97,6 +97,25 @@ class Find5GoldRoom(LootRoom):
             return """
         You discovered gold in this room.
         It is now empty and unremarkable.
+            """
+
+class FindBananaRoom(LootRoom):
+    def __init__(self, x, y):
+        super().__init__(x, y, items.Banana())
+        self.id = "TREASURE: FOOD"
+
+    def intro_text(self):
+        if self.item:
+            return """
+        You find a wooden table with a broken chair. Upon the table a
+        clay plate with a tasty ripe banana rests beside a dirty fork.
+
+        Who's dinner was this? You put the banana in your inventory.
+            """
+        else:
+            return """
+        You see a wooden table with an empty plate and a broken chair.
+        Nothing else looks interesting.
             """
 
 

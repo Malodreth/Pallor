@@ -39,6 +39,10 @@ class Look(Action):
     def __init__(self):
         super().__init__(method=Player.look, name='Look', hotkey='l')
 
+class UseConsumable(Action):
+    def __init__(self):
+        super().__init__(method=Player.use_consumable, name='Use consumable', hotkey='c')
+
 class Attack(Action):
     def __init__(self, enemy):
         super().__init__(method=Player.attack, name='Attack', hotkey='a', enemy=enemy)
