@@ -19,10 +19,15 @@ version 0.1.2 | release date 05/11/2017
 * Gameplay
 
     - NEW FEATURE: Stealth! 
-        ~ You are now skilled in the art of stealth. When entering a room with an enemy, a stealth check (modified by an enemy's advantage) determines whether you can sneak up on the enemy. If the enemy beats your stealth check with a high perception stat, then you are detected and immediately attacked.
+        ~ You are now skilled in the art of stealth. When entering a room with an enemy, a stealth check 
+          (modified by an enemy's advantage) determines whether you can sneak up on the enemy. If the enemy 
+          beats your stealth check with a high perception stat, then you are detected and immediately attacked
     - Added new stats: Perception, Advantage and Stealth
-        ~ Perception is an enemy stat that is played against your stealth skill to determine whether stealth is a success or a failure
-        ~ Enemies gain advantage when you flee, or attempt to flee, from stealth or combat. Advantage acts as a penalty during a stealth check. Each subsequent attempt to flee or stealth becomes more difficult as the enemy gains advantage, eventually rendering the ability to stealth or flee impossible.
+        ~ Perception is an enemy stat that is played against your stealth skill to determine whether stealth is 
+          a success or a failure
+        ~ Enemies gain advantage when you flee, or attempt to flee, from stealth or combat. Advantage acts as a 
+          penalty during a stealth check. Each subsequent attempt to flee or stealth becomes more difficult as 
+          the enemy gains advantage, eventually rendering the ability to stealth or flee impossible
         ~ See NEW FEATURE: Stealth 
     - Added new action: 'check status'
         ~ Shows a breakdown of your character, including HP and skills
