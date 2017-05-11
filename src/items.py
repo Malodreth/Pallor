@@ -6,7 +6,7 @@ class Item:
         self.value = value
 
     def __str__(self):
-        return "{}\n=====\n{}\nValue: {}\n".format(self.name, self.description, self.value)
+        return "\t{}\n\t=====\n\t{}\n\tValue: {}\n".format(self.name, self.description, self.value)
 
 
     
@@ -31,7 +31,7 @@ class Weapon(Item):
         super().__init__(name, description, value)
 
     def __str__(self):
-        return "{}\n=====\n{}\nValue: {}\nDamage: {}\n".format(self.name, self.description, self.value, self.damage)
+        return "\t{}\n\t=====\n\t{}\n\tValue: {}\n\tDamage: {}\n".format(self.name, self.description, self.value, self.damage)
 
 
 
@@ -42,7 +42,7 @@ class Consumable(Item):
         super().__init__(name, description, value)
 
     def __str__(self):
-        return "{}\n=====\n{}\nValue: {}\nHealing: {}\n".format(self.name, self.description, self.value, self.healing)
+        return "\t{}\n\t=====\n\t{}\n\tValue: {}\n\tHealing: {}\n".format(self.name, self.description, self.value, self.healing)
 
 
 

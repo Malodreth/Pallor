@@ -5,17 +5,28 @@ class Player():
     global _max_y
     
     def __init__(self):
+        self.name = ''
         self.inventory = [items.Gold(15), items.Mushroom(), items.Mushroom(), items.Rock()]
         self.hp = 100
+        self.stealth = 12
         self.location_x, self.location_y = (0, 0)
         self.victory = False
+        self.has_attacked = False
+        self.has_read = False
         self.map = [["?"*15 for i in range(pylon._max_x)] for j in range(pylon._max_y)]
 
     def is_alive(self):
         return self.hp > 0
 
+    def check_status(self):
+        counter = 0
+        for item in self.inventory:
+            counter += 1
+        print("\n\t\t---=( Player Status ) =---\n")
+        print("\tName: {}\n\tHP: {}/100\n\n\tCarrying {} items\n\n\tSKILLS\n\t=====\n\tStealth: {}\n".format(self.name, self.hp, counter, self.stealth))
+
     def print_inventory(self):
-        print("-=( Inventory )=-\n")
+        print("\n\t\t---=( Inventory )=---\n")
         for item in self.inventory:
             print(item, '\n')
 
@@ -43,13 +54,13 @@ class Player():
         self.move(dx=-1, dy=0)
 
     def view_map(self):
-        print("-=( Dungeon Map )=-\n")
+        print("\n\t\t---=( Dungeon Map )=---\n")
         for j in range(pylon._max_y):
             for i in range(pylon._max_x):
                 if self.location_x == i and self.location_y == j:
-                    print('[',self.map[j][i].center(15),']')
+                    print('\t\t  [', self.map[j][i].center(15), ']')
                 else:
-                    print(self.map[j][i].center(20))
+                    print('\t\t ', self.map[j][i].center(20))
             print("")
 
     def look(self):
@@ -95,12 +106,14 @@ class Player():
                 if i.damage > max_dmg:
                     max_dmg = i.damage
                     best_weapon = i
-
+        self.has_attacked = True
         print("\n\tYou used {} against {}.".format(best_weapon.name, enemy.name))
-        print("\tYour {} does {} damage to {}!".format(best_weapon.name, best_weapon.damage, enemy.name))
+        print("\tYour {} does {} damage!".format(best_weapon.name, best_weapon.damage))
         enemy.hp -= best_weapon.damage
         if not enemy.is_alive():
             print("\tYou killed {}!\n".format(enemy.name))
+            self.has_read = False
+            self.has_attacked = False
         else:
             print("\n\t{}'s HP is {}.".format(enemy.name, enemy.hp))
 
@@ -109,17 +122,28 @@ class Player():
         if action_method:
             action_method(**kwargs)
 
-    def flee(self, tile):
+    def flee(self, tile, enemy):
         """Moves the player randomly to an adjacent tile"""
         available_moves = tile.adjacent_moves()
         r = pylon.run(len(available_moves))
-        enemy = pylon.d20()
-        player = pylon.d20()
-        while enemy == player:
-            enemy = pylon.d20()
-            player = pylon.d20()
-        if player > enemy:
+        stealth_check = (pylon.d6() + self.stealth) - (enemy.advantage * 2)
+        if enemy.perception < stealth_check and not self.has_attacked:
+            enemy.advantage += 4
+            self.has_read = False
             print("\n\tYou ran away!")
             self.do_action(available_moves[r])
         else:
-            print("\n\t{} blocked your escape!".format(tile.id))
+            enemy_roll = pylon.d20() + enemy.advantage
+            player_roll = pylon.d20()
+            while enemy_roll == player_roll:
+                enemy_roll = pylon.d20()
+                player_roll = pylon.d20()
+            if player_roll > enemy_roll:
+                enemy.advantage += 2
+                self.has_read = False
+                self.has_attacked = False
+                print("\n\tYou ran away!")
+                self.do_action(available_moves[r])
+            else:
+                enemy.advantage += 2
+                print("\n\t{} blocked your escape!".format(tile.id))

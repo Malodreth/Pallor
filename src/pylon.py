@@ -76,6 +76,7 @@ class MapTile:
         """Returns all of the available actions in this room."""
         moves = self.adjacent_moves()
         moves.append(actions.Look())
+        moves.append(actions.CheckStatus())
         moves.append(actions.UseConsumable())
         moves.append(actions.ViewInventory())
         moves.append(actions.ViewMap())
@@ -109,18 +110,27 @@ class EnemyRoom(MapTile):
         super().__init__(x, y)
 
     def modify_player(self, the_player):
+        stealth_check = (d6() + the_player.stealth) - (self.enemy.advantage * 2)
         if self.enemy.is_alive():
-            dmg = self.enemy.damage + d6()
-            the_player.hp = the_player.hp - dmg
-            if not the_player.hp <= 0: 
-                print("\n\t{} does {} damage. You have {} HP remaining.\n".format(self.enemy.name, dmg, the_player.hp))
+            if self.enemy.perception < stealth_check and not the_player.has_attacked and not the_player.has_read:
+                print("\n\t{} doesn't seem to notice you.\n".format(self.enemy.name))
+                the_player.has_read = True
+            if self.enemy.perception < stealth_check and not the_player.has_attacked and the_player.has_read:
+                pass
+            else:
+                the_player.has_attacked = True
+                dmg = self.enemy.damage + d6()
+                the_player.hp = the_player.hp - dmg
+                if not the_player.hp <= 0: 
+                    print("\n\t{} does {} damage. You have {} HP remaining.\n".format(self.enemy.name, dmg, the_player.hp))
 
     def available_actions(self):
         if self.enemy.is_alive():
-            return [actions.Flee(tile=self), actions.Attack(enemy=self.enemy)]
+            return [actions.Flee(tile=self, enemy=self.enemy), actions.Attack(enemy=self.enemy), actions.CheckStatus()]
         else:
             moves = self.adjacent_moves()
             moves.append(actions.Look())
+            moves.append(actions.CheckStatus())
             moves.append(actions.UseConsumable())
             moves.append(actions.ViewInventory())
             moves.append(actions.ViewMap())

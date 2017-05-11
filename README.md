@@ -5,20 +5,30 @@ A game where you collect treasure, fight monsters and avoid traps as you try to 
 ## Patch Notes
 
 ```
-version 0.1.1 | release date 05/10/2017
+version 0.1.2 | release date 05/11/2017
 
 * General
   
-    - Fixed typos
+    - Cleaned up source code in some areas
+    - Changed original placement of some lines of text
+    - You can now exit from within the game at almost any point by typing 'exit' or 'stop'
+    - Added a minor introduction with simple player creation
+    - Added a 'restart' function to the end of the game loop
+    - Removed 'pause' from Pallor.bat
 
 * Gameplay
 
-    - NEW FEATURE: Healing! 
-        ~ Choose 'Use consumable' if you have a consumable item in your inventory to recover lost HP
-    - Added new action: 'Use consumable'
-    - Added new item class: consumable
-    - Added new consumable items: Mushroom and Banana
-    - Added new loot room  
+    - NEW FEATURE: Stealth! 
+        ~ You are now skilled in the art of stealth. When entering a room with an enemy, a stealth check (modified by an enemy's advantage) determines whether you can sneak up on the enemy. If the enemy beats your stealth check with a high perception stat, then you are detected and immediately attacked.
+    - Added new stats: Perception, Advantage and Stealth
+        ~ Perception is an enemy stat that is played against your stealth skill to determine whether stealth is a success or a failure
+        ~ Enemies gain advantage when you flee, or attempt to flee, from stealth or combat. Advantage acts as a penalty during a stealth check. Each subsequent attempt to flee or stealth becomes more difficult as the enemy gains advantage, eventually rendering the ability to stealth or flee impossible.
+        ~ See NEW FEATURE: Stealth 
+    - Added new action: 'check status'
+        ~ Shows a breakdown of your character, including HP and skills
+    - Modified action: flee
+        ~ Successful flees from combat increase an enemy's advantage
+        ~ Stealthed flees increase an enemy's advantage at 2x the normal amount
 ```
 
 ## Getting Started
@@ -48,6 +58,7 @@ Choose from the list of available actions in each room to explore or advance:
 * Combat:   [a] = Attack      [f] = Flee
 
 * Default:  [l] = Look
+            [h] = Check status
             [c] = Use consumable 
             [i] = View inventory
             [m] = View Map

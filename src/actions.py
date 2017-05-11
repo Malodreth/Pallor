@@ -39,6 +39,10 @@ class Look(Action):
     def __init__(self):
         super().__init__(method=Player.look, name='Look', hotkey='l')
 
+class CheckStatus(Action):
+    def __init__(self):
+        super().__init__(method=Player.check_status, name='Check status', hotkey='h')
+
 class UseConsumable(Action):
     def __init__(self):
         super().__init__(method=Player.use_consumable, name='Use consumable', hotkey='c')
@@ -48,5 +52,5 @@ class Attack(Action):
         super().__init__(method=Player.attack, name='Attack', hotkey='a', enemy=enemy)
 
 class Flee(Action):
-    def __init__(self, tile):
-        super().__init__(method=Player.flee, name='Flee', hotkey='f', tile=tile)
+    def __init__(self, tile, enemy):
+        super().__init__(method=Player.flee, name='Flee', hotkey='f', tile=tile, enemy=enemy)
