@@ -71,11 +71,11 @@ Choose from the list of available actions in each room to explore or advance:
 
 ## Author(s)
 
-* Malodreth - Website: [Malodreth's Lair](http://www.malodreth.cf/) - E-mail: [malodreth@gmail.com](mailto:malodreth@gmail.com)
+* Malodreth | ***Website:*** [Malodreth's Lair](http://www.malodreth.cf/) | ***E-mail:*** [malodreth@gmail.com](mailto:malodreth@gmail.com)
 
 ## Licence
 
-This material is covered under the MIT licence. Please see [License.md](https://github.com/Malodreth/Pallor/blob/master/License.md) for more information.
+This material is covered under the **MIT licence**. Please see [License.md](https://github.com/Malodreth/Pallor/blob/master/License.md) for more information.
 
 # Acknowledgements
 
