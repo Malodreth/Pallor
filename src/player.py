@@ -1,39 +1,35 @@
 import pylon, items
 
+
+
 class Player():
     global _max_x
     global _max_y
     
     def __init__(self):
+        self.location_x, self.location_y = (0, 0)
+        self.map = [["?"*15 for i in range(pylon._max_x)] for j in range(pylon._max_y)]
+        self.inventory = [items.Gold(0), items.GoldenKey(), items.Rock(), items.Mushroom(), items.Mushroom()]
+        self.victory = False
+        self.has_read = False
+        self.has_attacked = False
+        
         self.name = ''
-        self.inventory = [items.Gold(15), items.Mushroom(), items.Mushroom(), items.Rock()]
         self.hp = 100
         self.stealth = 12
-        self.location_x, self.location_y = (0, 0)
-        self.victory = False
-        self.has_attacked = False
-        self.has_read = False
-        self.map = [["?"*15 for i in range(pylon._max_x)] for j in range(pylon._max_y)]
 
     def is_alive(self):
         return self.hp > 0
-
-    def check_status(self):
-        counter = 0
-        for item in self.inventory:
-            counter += 1
-        print("\n\t\t---=( Player Status ) =---\n")
-        print("\tName: {}\n\tHP: {}/100\n\n\tCarrying {} items\n\n\tSKILLS\n\t=====\n\tStealth: {}\n".format(self.name, self.hp, counter, self.stealth))
-
-    def print_inventory(self):
-        print("\n\t\t---=( Inventory )=---\n")
-        for item in self.inventory:
-            print(item, '\n')
 
     def add_gold(self, amt):
         for i, j in enumerate(self.inventory):
             if isinstance(j, items.Gold):
                 self.inventory[i].add(amt)
+
+    def do_action(self, action, **kwargs):
+        action_method = getattr(self, action.method.__name__)
+        if action_method:
+            action_method(**kwargs)
 
     def move(self, dx, dy):
         self.location_x += dx
@@ -53,19 +49,16 @@ class Player():
     def move_west(self):
         self.move(dx=-1, dy=0)
 
-    def view_map(self):
-        print("\n\t\t---=( Dungeon Map )=---\n")
-        for j in range(pylon._max_y):
-            for i in range(pylon._max_x):
-                if self.location_x == i and self.location_y == j:
-                    print('\t\t  [', self.map[j][i].center(15), ']')
-                else:
-                    print('\t\t ', self.map[j][i].center(20))
-            print("")
-
     def look(self):
         print(pylon.tile_exists(self.location_x, self.location_y).intro_text())
 
+    def check_status(self):
+        counter = 0
+        for item in self.inventory:
+            counter += 1
+        print("\n\t\t---=( Player Status ) =---\n")
+        print("\tName: {}\n\tHP: {}/100\n\n\tCarrying {} items\n\n\tSKILLS\n\t=====\n\tStealth: {}\n".format(self.name, self.hp, counter, self.stealth))
+        
     def use_consumable(self):
         best_food = None
         max_heal = 0
@@ -96,7 +89,21 @@ class Player():
                     self.hp -= modifier
                     heal_amt = best_food.healing - modifier
                 print("\tYou've been healed for {} points! You have {} HP.\n".format(heal_amt, self.hp))
-        
+
+    def print_inventory(self):
+        print("\n\t\t---=( Inventory )=---\n")
+        for item in self.inventory:
+            print(item, '\n')
+
+    def view_map(self):
+        print("\n\t\t---=( Dungeon Map )=---\n")
+        for j in range(pylon._max_y):
+            for i in range(pylon._max_x):
+                if self.location_x == i and self.location_y == j:
+                    print('\t\t  [', self.map[j][i].center(15), ']')
+                else:
+                    print('\t\t ', self.map[j][i].center(20))
+            print("")   
 
     def attack(self, enemy):
         best_weapon = None
@@ -116,11 +123,6 @@ class Player():
             self.has_attacked = False
         else:
             print("\n\t{}'s HP is {}.".format(enemy.name, enemy.hp))
-
-    def do_action(self, action, **kwargs):
-        action_method = getattr(self, action.method.__name__)
-        if action_method:
-            action_method(**kwargs)
 
     def flee(self, tile, enemy):
         """Moves the player randomly to an adjacent tile"""
@@ -147,3 +149,19 @@ class Player():
             else:
                 enemy.advantage += 2
                 print("\n\t{} blocked your escape!".format(tile.id))
+
+    def use_key(self, tile):
+        best_key = None
+        if tile.locked:
+            for item in self.inventory:
+                if isinstance(item, items.Key):
+                    if tile.key == item.unique:
+                        best_key = item.unique
+                        tile.locked = False
+                        print("\n\tYou use {}!".format(item.name))
+                        break
+                    best_key = item.unique
+            if best_key == None:
+                print("\n\tYou don't have any keys!\n")
+            if best_key != None and best_key != tile.key:
+                print("\n\tYou don't have the right key!\n")

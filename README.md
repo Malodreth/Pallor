@@ -5,35 +5,27 @@ A game where you collect treasure, fight monsters and avoid traps as you try to 
 ## Patch Notes
 
 ```
-version 0.1.2 | release date 05/11/2017
+version 0.1.3 | release date 05/12/2017
 
 * General
   
-    - Cleaned up source code in some areas
-    - Changed original placement of some lines of text
-    - You can now exit from within the game at almost any point by typing 'exit' or 'stop'
-    - Added a minor introduction with simple player creation
-    - Added a 'restart' function to the end of the game loop
-    - Removed 'pause' from Pallor.bat
+    - Cleaned up redundancies in source code for better optimisation and reorganised for legibility
+    - Added loops in some areas to handle unwanted user input    
 
 * Gameplay
 
-    - NEW FEATURE: Stealth! 
-        ~ You are now skilled in the art of stealth. When entering a room with an enemy, a stealth check 
-          (modified by an enemy's advantage) determines whether you can sneak up on the enemy. If the enemy 
-          beats your stealth check with a high perception stat, then you are detected and immediately attacked
-    - Added new stats: Perception, Advantage and Stealth
-        ~ Perception is an enemy stat that is played against your stealth skill to determine whether stealth is 
-          a success or a failure
-        ~ Enemies gain advantage when you flee, or attempt to flee, from stealth or combat. Advantage acts as a 
-          penalty during a stealth check. Each subsequent attempt to flee or stealth becomes more difficult as 
-          the enemy gains advantage, eventually rendering the ability to stealth or flee impossible
-        ~ See NEW FEATURE: Stealth 
-    - Added new action: 'check status'
-        ~ Shows a breakdown of your character, including HP and skills
-    - Modified action: flee
-        ~ Successful flees from combat increase an enemy's advantage
-        ~ Stealthed flees increase an enemy's advantage at 2x the normal amount
+    - NEW FEATURE: Locked items! 
+        ~ Treasure isn't as exciting when it's just handed to you. Now you can find locked doors, chests,
+          and more on your journey. You'll have to find the right key, but who knows what - or who! - could 
+          be locked inside?!
+    - Added new room class: Locked Rooms 
+    - Added new item class: Keys
+    - Added new action: 'Use key'
+    - Added new items: Longsword, Golden Key and Bone Key
+    - Updated map.txt with new rooms and altered layout
+    - Made slight changes to enemies:
+        ~ Ogres now have considerably more health: Up by 100% (was 30 HP)
+        ~ Giant Spiders have 50% more health and base damage (was 10 HP and 2 damage, respectively)    
 ```
 
 ## Getting Started
@@ -64,12 +56,13 @@ Choose from the list of available actions in each room to explore or advance:
 
 * Default:  [l] = Look
             [h] = Check status
+            [k] = Use key
             [c] = Use consumable 
             [i] = View inventory
             [m] = View Map
 		    ~ The dungeon map is broken up into several blocks listed north to south.
                       Each block has 5 rows listed west to east. Unexplored areas of the map are
-                      labelled '??????????' and become uncovered as you move through the dungeon. 
+                      labelled '??????????' and become uncovered as you move through the dungeon.
         [ENTER] = Do nothing
 ```
 ## Built With
@@ -78,7 +71,7 @@ Choose from the list of available actions in each room to explore or advance:
 
 ## Author(s)
 
-* **Malodreth** - [Malodreth's Lair](http://www.malodreth.cf/) - [malodreth@gmail.com](mailto:malodreth@gmail.com)
+* Malodreth - Website: [Malodreth's Lair](http://www.malodreth.cf/) - E-mail: [malodreth@gmail.com](mailto:malodreth@gmail.com)
 
 ## Licence
 

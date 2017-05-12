@@ -1,14 +1,13 @@
-import pylon, items, enemies, actions
-
+import pylon, items, enemies
 
 
 MapTile = pylon.MapTile
 LootRoom = pylon.LootRoom
 EnemyRoom = pylon.EnemyRoom
+LockedRoom = pylon.LockedRoom
 
 
-
-#Starting and ending rooms
+##### STANDARD ROOMS #####
 
 class StartingRoom(MapTile):
     def __init__(self, x, y):
@@ -21,8 +20,8 @@ class StartingRoom(MapTile):
         """
 
     def modify_player(self, player):
-        #Room has no action on player
         pass
+
 
 class VictoryRoom(MapTile):
     def intro_text(self):
@@ -37,9 +36,6 @@ class VictoryRoom(MapTile):
     def modify_player(self, player):
         player.victory = True
 
-
-
-#Misc rooms
         
 class EmptyCavePath(MapTile):
     def __init__(self, x, y):
@@ -52,8 +48,8 @@ class EmptyCavePath(MapTile):
         """
 
     def modify_player(self, player):
-        #Room has no action on player
         pass
+
 
 class SnakePitRoom(MapTile):
     def intro_text(self):
@@ -62,9 +58,8 @@ class SnakePitRoom(MapTile):
     def modify_player(self, player):
         player.hp = 0
 
-
-
-#Loot rooms
+##########################
+##### STANDARD LOOT ROOMS #####
 
 class FindDaggerRoom(LootRoom):
     def __init__(self, x, y):
@@ -83,6 +78,7 @@ class FindDaggerRoom(LootRoom):
         Nothing else is remarkable about this room now.
             """
 
+
 class Find5GoldRoom(LootRoom):
     def __init__(self, x, y):
         super().__init__(x, y, items.Gold(5))
@@ -98,6 +94,7 @@ class Find5GoldRoom(LootRoom):
         You discovered gold in this room.
         It is now empty and unremarkable.
             """
+
 
 class FindBananaRoom(LootRoom):
     def __init__(self, x, y):
@@ -118,9 +115,53 @@ class FindBananaRoom(LootRoom):
         Nothing else looks interesting.
             """
 
+###############################
+##### LOCKED LOOT ROOMS #####
+
+class StorageRoom(LockedRoom):
+    def __init__(self, x, y):
+        super().__init__(x, y, "storage",
+                         items.Longsword(),
+                         """
+        The door unlocks and you find a closet with a longsword inside
+        a display case! You pick up the longsword.""")
+        self.id = "LOCKED DOOR"
+
+    def intro_text(self):
+        if not self.opened and self.locked:
+            return """
+        You stumble upon a locked door. The keyhole makes an odd crossed shape.
+            """
+        else:
+            return """
+        You previously unlocked this room and found a longsword.
+        It is now empty. You must press on.
+            """
 
 
-#Enemy rooms
+class FindChestRoom(LockedRoom):
+    def __init__(self, x, y):
+        super().__init__(x, y, "deusex",
+                         items.BoneKey(),
+                         """
+        The chest opens and inside you find... another key? The key
+        seems to be made of bone. You notice that its teeth end in four
+        points from the centre.""")
+        self.id = "LOCKED CHEST"
+
+    def intro_text(self):
+        if not self.opened and self.locked:
+            return """
+        You see a golden trunk with the words 'Machina' engraved on the front.
+        It needs a key to open it.
+            """
+        else:
+            return """
+        You previously unlocked this chest and found another key.
+            """
+
+#############################
+##### ENEMY ROOMS #####
 
 class GiantSpiderRoom(EnemyRoom):
     def __init__(self, x, y):
@@ -135,6 +176,7 @@ class GiantSpiderRoom(EnemyRoom):
         The corpse of a dead spider rots on the ground.
             """
 
+
 class OgreRoom(EnemyRoom):
     def __init__(self, x, y):
         super().__init__(x, y, enemies.Ogre())
@@ -147,3 +189,5 @@ class OgreRoom(EnemyRoom):
             return """
         A dead ogre reminds you of your triumph.
             """
+
+#######################
