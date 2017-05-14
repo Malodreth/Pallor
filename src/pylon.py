@@ -1,4 +1,4 @@
-import items, actions, random, pkg_resources
+import items, actions, random
 from re import match
 
 
@@ -9,10 +9,10 @@ _max_y = 0
 
 ##### TILING ENGINE #####
 
-def load_tiles():
+def load_tiles(map_id):
     """Parses a .txt file that feeds the map into the _world dictionary"""
     global _max_x, _max_y
-    with open(pkg_resources.resource_filename(__name__, 'resources/map.txt'), 'r') as f:
+    with open('map_{}.txt'.format(map_id)) as f:
         rows = f.readlines()
     x_max = len(rows[0].split())
     _max_x = x_max
@@ -31,6 +31,9 @@ def tile_exists(x, y):
 
 def run(r):
     return random.randint(0, r - 1)
+
+def map_select(r):
+    return random.randint(1, r)
 
 def d6():
     return random.randint(1, 6)
@@ -194,3 +197,18 @@ class Enemy:
 
     def is_alive(self):
         return self.hp > 0
+
+###########################
+##### MISC #####
+
+notAllowed = ['lady gaga',
+              'johnathan',
+              'johnathan boatman',
+              'mikerowave',
+              'bunbun',
+              'larry',
+              'lawrence',
+              'mike',
+              'michael']
+
+################

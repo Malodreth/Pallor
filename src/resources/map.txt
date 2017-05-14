@@ -1,9 +1,0 @@
-xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx VictoryRoom          xxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx SnakePitRoom         Find5GoldRoom        xxxxxxxxxxxxxxxxxxxx
-SnakePitRoom         Find5GoldRoom        EmptyCavePath        OgreRoom             EmptyCavePath
-xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx FindBananaRoom       xxxxxxxxxxxxxxxxxxxx GiantSpiderRoom
-xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx StorageRoom          xxxxxxxxxxxxxxxxxxxx Find5GoldRoom
-GiantSpiderRoom      EmptyCavePath        StartingRoom         EmptyCavePath        FindDaggerRoom
-FindChestRoom        xxxxxxxxxxxxxxxxxxxx Find5GoldRoom        xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx
-Find5GoldRoom        GiantSpiderRoom      EmptyCavePath        OgreRoom             Find5GoldRoom
-xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx SnakePitRoom         xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx

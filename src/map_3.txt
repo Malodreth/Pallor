@@ -1,0 +1,9 @@
+xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx SnakePitRoom         xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx EmptyCavePath        EmptyCavePath        EmptyCavePath
+xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx EmptyCavePath        xxxxxxxxxxxxxxxxxxxx GiantSpiderRoom
+xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx EmptyCavePath        xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx
+GiantSpiderRoom      EmptyCavePath        StartingRoom         EmptyCavePath        xxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx EmptyCavePath        xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx EmptyCavePath        xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx VictoryRoom          xxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxx

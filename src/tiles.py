@@ -44,7 +44,8 @@ class EmptyCavePath(MapTile):
         
     def intro_text(self):
         return """
-        Another unremarkable part of the cave. You must forge onwards.
+        You are standing in another unremarkable part of the cave. You
+        must forge onwards.
         """
 
     def modify_player(self, player):

@@ -5,40 +5,34 @@ A game where you collect treasure, fight monsters and avoid traps as you try to 
 ## Patch Notes
 
 ```
-version 0.1.3 | release date 05/12/2017
+version 0.1.4 | release date 05/14/2017
 
 * General
   
-    - Cleaned up redundancies in source code for better optimisation and reorganised for legibility
-    - Added loops in some areas to handle unwanted user input    
-
-* Gameplay
-
-    - NEW FEATURE: Locked items! 
-        ~ Treasure isn't as exciting when it's just handed to you. Now you can find locked doors, chests,
-          and more on your journey. You'll have to find the right key, but who knows what - or who! - could 
-          be locked inside?!
-    - Added new room class: Locked Rooms 
-    - Added new item class: Keys
-    - Added new action: 'Use key'
-    - Added new items: Longsword, Golden Key and Bone Key
-    - Updated map.txt with new rooms and altered layout
-    - Made slight changes to enemies:
-        ~ Ogres now have considerably more health: Up by 100% (was 30 HP)
-        ~ Giant Spiders have 50% more health and base damage (was 10 HP and 2 damage, respectively)    
+    - Each iteration of the game loop now loads a random pre-generated map
+        ~ Renamed map.txt and added 2 new maps for testing. *Dev note: Random selection is disabled
+          by default and is only intended for testing in its current form. To unlock, simply set the
+          'map_id' variable in main.py to 'pylon.map_select(3)'*
+    - Removed pkg_resources module from 'pylon.py' so that it no longer conflicts with various resourcing tools
+    - Added 'setup.py' and reorganised the source code to prep for distribution
+    - Readded 'pause' to Pallor.bat as its only intended purpose now is for development
+    - Built 'main.exe' included with 'prerelease_0.1.4' package
+        ~ Windows users can now enjoy playtesting Pallor without installing Python 3.x or any other dependencies
+          by downloading and unzipping 'prerelease_0.1.4'. Double-click 'main.exe' to launch the game
+          WARNING: May be unstable on some versions of Windows. Use at your own risk!   
 ```
 
 ## Getting Started
 
-Notice: ***REQUIRES** Python 3.x to run!* [Click here](https://www.python.org/downloads/) to download.
+***WARNING***: May be unstable on some versions of Windows. *Use at your own risk!*
 
 *Currently only supports Windows operating systems.*
 
 ### Installing
 
-Simply clone the parent folder, then open and double-click Pallor.bat to launch the game.
+Simply clone the parent folder, then unzip and open 'prerelease_x.x.x". Double-click 'main.exe' to launch the game.
 
-### Troubleshooting
+### Troubleshooting (for Developers)
 
 * **Pallor.bat isn't opening** 
   * Some security tools block .bat files from executing. *To override this: right-click on the file > go to properties > check 'Unblock' under Security > click apply.*
@@ -67,7 +61,7 @@ Choose from the list of available actions in each room to explore or advance:
 ```
 ## Built With
 
-* [Python 3.5.3](https://docs.python.org/3.5/whatsnew/3.5.html)
+* Python 3.4.4 and 3.5.3 [Download](https://www.python.org/downloads/)
 
 ## Author(s)
 
