@@ -30,14 +30,20 @@ version 0.1.4 | release date 05/14/2017
 
 ### Installing
 
-Simply clone the parent folder, then unzip and open 'prerelease_x.x.x". Double-click 'main.exe' to launch the game.
+[Click here](https://github.com/Malodreth/Pallor/releases/download/v0.1.4/prerelease_0.1.4.zip) to download 'prerelease_x.x.x.zip', then extract the folder and double-click 'main.exe' to launch the game.
 
-### Troubleshooting (for Developers)
+### Troubleshooting
 
+* **I'm having issues downloading '*prerelease_x.x.x*'...
+    * Some security tools block downloads from unknown publishers. *In most cases, this can be overridden by selecting 'Keep File'.*
+* **main.exe isn't opening**
+    * As before, some security tools block .exe files from executing. *To override this: right-click on the file < go to Properies < check 'Unblock' under Security < click Apply.*
+
+###### (for Developers)
 * **Pallor.bat isn't opening** 
-  * Some security tools block .bat files from executing. *To override this: right-click on the file > go to properties > check 'Unblock' under Security > click apply.*
+    * Some security tools block .bat files from executing. *To override this: right-click on the file < go to Properties < check 'Unblock' under Security < click Apply.*
 * **I keep getting "*'python' is not recognized as an internal or external command...*"**
-  * If you're launching the programme from Pallor.bat, make sure that Python is configured properly. To check this: open the cmd console > type 'python -V' > hit enter. *If you get an error, read section 3.3 Configuring Python of the [Python documentation](https://docs.python.org/3.6/using/windows.html) to learn how to manually set your environment variables.*
+    * If you're launching the programme from Pallor.bat, make sure that Python is configured properly. To check this: open the cmd console < type 'python -V' < hit enter. *If you get an error, read section 3.3 Configuring Python of the [Python documentation](https://docs.python.org/3.6/using/windows.html) to learn how to manually set your environment variables.*
 
 ## How To Play
 
