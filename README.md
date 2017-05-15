@@ -7,7 +7,7 @@ A game where you collect treasure, fight monsters and avoid traps as you try to 
 * [Release notes](https://github.com/Malodreth/Pallor#release-notes)
 * [Getting started](https://github.com/Malodreth/Pallor#getting-started)
     * [Installation](https://github.com/Malodreth/Pallor#installation)
-    * [Troubleshooting](https://github.com/Malodreth/Pallor#troubleshotting)
+    * [Troubleshooting](https://github.com/Malodreth/Pallor#troubleshooting)
 * [How to Play](https://github.com/Malodreth/Pallor#how-to-play)
 * [Built With](https://github.com/Malodreth/Pallor#built-with)
 * [Author(s)](https://github.com/Malodreth/Pallor#authors)
@@ -41,7 +41,7 @@ A game where you collect treasure, fight monsters and avoid traps as you try to 
 * ***For players***: **[[Click here]](https://github.com/Malodreth/Pallor/releases/download/v0.1.4/prerelease_0.1.4.zip)** to download the latest `prerelease_x.x.x.zip`. Extract the folder and double-click `main.exe` to launch the game.
 
 * ***For developers***: Simply clone or fork the `master` branch. For your convenience, `Pallor.bat` is included in the `/src` directory as a quicklaunch for testing. Otherwise, open the `cmd` console, `cd` to `/src` and use `python main.py` to run the programme.
-    * **NOTE**: *Not compatible with Python 2.x*
+    * **Dev note**: *Not compatible with Python 2.x*
 
 ### Troubleshooting
 
@@ -85,8 +85,8 @@ Choose from the list of available actions in each room to explore the dungeon ma
 
 ## Built With
 
-* **Python** 3.4.4 [[Download]](https://www.python.org/downloads/)
-* **cx_Freeze** 5.0.1 [[Download]](https://pypi.python.org/pypi/cx_Freeze)
+* **Python 3.4.4** [[Download]](https://www.python.org/downloads/)
+* **cx_Freeze 5.0.1** [[Download]](https://pypi.python.org/pypi/cx_Freeze)
 
 
 ## Author(s)
@@ -99,7 +99,6 @@ Choose from the list of available actions in each room to explore the dungeon ma
 ## Licence
 
 This material is covered under the **MIT licence**. 
-
 ###### See [License.md](https://github.com/Malodreth/Pallor/blob/master/License.md) for more information.
 
 
