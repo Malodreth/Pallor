@@ -94,6 +94,8 @@ Choose from the list of available actions in each room to explore the dungeon ma
 * Malodreth
     * **E-mail**: [malodreth@gmail.com](mailto:malodreth@gmail.com)
     * **Website**: [Malodreth's Lair](http://www.malodreth.cf/)
+* Phillip Johnson
+    * **Website**: [Let's Talk Data](http://letstalkdata.com)
 
 
 ## Licence
